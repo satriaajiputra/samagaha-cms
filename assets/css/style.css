@@ -1,0 +1,264 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: #f0f0f0;
+  color: #888;
+  font-size: 1rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #555;
+}
+input,
+select,
+button,
+label,
+textarea {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  color: #888;
+  font-size: 1rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: #666;
+}
+.container {
+  max-width: 920px;
+  width: 100%;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+.clear {
+  clear: both;
+}
+.d-flex {
+  display: flex;
+}
+.justify-center {
+  justify-content: center;
+}
+.container:after,
+.container:before,
+nav ul:before,
+nav ul:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+header {
+  background-color: #fff;
+  padding: 30px 35px 0px 35px;
+  text-align: center;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #ddd;
+  margin-top: 30px;
+}
+nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+nav ul li {
+  float: left;
+}
+nav ul li a {
+  display: inline-block;
+  padding: 8px 15px;
+  position: relative;
+}
+nav ul li a:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  min-height: 0px;
+  width: 100%;
+  left: 0;
+  background-color: #555;
+  transition: all 0.2s ease;
+}
+nav ul li a:hover:after,
+nav ul li.active a {
+  min-height: 2px;
+}
+.text-center {
+  text-align: center !important;
+}
+.content-wrapper {
+  background-color: #fff;
+  padding: 30px 35px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 -15px;
+}
+.row .col-6 {
+  flex-basis: 50%;
+  padding: 0 15px;
+}
+.box-item {
+  padding: 15px;
+  margin: 15px 0;
+  border: 1px solid #ddd;
+}
+.box-item .counter {
+  font-weight: 300;
+  font-size: 35px;
+  color: #666;
+}
+.box-item .title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+.box-item a {
+  font-size: 14px;
+  display: inline-block;
+  position: relative;
+  padding: 5px 0;
+}
+.box-item a:after {
+  content: '\0203A';
+  position: absolute;
+  right: -5px;
+  transition: right 0.3s ease, opacity 0.4s ease;
+  opacity: 0;
+  font-size: 18px;
+  font-weight: 800;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+.box-item:hover a:after {
+  right: -13px;
+  opacity: 1;
+}
+.btn {
+  padding: 3px 5px;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid #ddd;
+  color: #555;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 2px 2px 0;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+.btn:hover {
+  border-color: #555;
+}
+.table-responsive {
+  overflow-x: auto;
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin: 15px 0;
+}
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 10px 8px;
+  vertical-align: middle;
+}
+table thead tr th {
+  border-bottom: 2px solid #ccc;
+}
+.pagination {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+}
+.pagination li {
+  display: inline;
+}
+.pagination li a {
+  font-weight: 700;
+  color: #888;
+  display: inline-block;
+  margin: 5px 0;
+  padding: 3px 8px;
+}
+.pagination li a:hover {
+  color: #555;
+}
+.pagination li.active a {
+  background-color: #555;
+  color: #fff;
+  border-radius: 3px;
+}
+.pagination li a[disabled] {
+  cursor: unset;
+}
+
+/* Form */
+.form-section {
+  margin-bottom: 7px;
+}
+.form-section label {
+  color: #555;
+}
+.form-section .form-el {
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 8px 15px;
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #888888;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.form-section .form-el:focus {
+  border-color: #555;
+}
+/* tags */
+.tags a {
+  font-size: 14px;
+}
+.tags a:after {
+  content: ', ';
+}
+.tags a:last-child:after {
+  content: '';
+}
+.label-lists {
+  position: absolute;
+  top: 0;
+  background-color: #fff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  min-width: 150px;
+  display: none;
+}
+.label-lists ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.label-lists ul li a {
+  display: block;
+  padding: 3px 8px;
+}
+.label-lists ul li a:hover {
+  background-color: #f9f9f9;
+}
+footer {
+  margin: 30px 35px;
+  text-align: center;
+}
