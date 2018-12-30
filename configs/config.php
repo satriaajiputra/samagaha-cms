@@ -11,6 +11,7 @@ By: Satria Aji Putra Karma Jaya
 // load configs here
 $config['app'] = require_once BASEPATH . "/configs/app.php";
 $config['database'] = require_once BASEPATH . "/configs/database.php";
+$config['http'] = require_once BASEPATH . "/configs/http.php";
 
 // function for calling config
 if(!function_exists('config')) {

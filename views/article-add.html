@@ -35,35 +35,22 @@
         <form action="" id="form-article">
           <div class="form-section">
             <label>Judul</label>
-            <input
-              type="text"
-              placeholder="Judul kamu disini..."
-              class="form-el"
-              name="title"
-            />
+            <input type="text" class="form-el" name="title" />
           </div>
           <div class="form-section">
             <label>Permalink</label>
-            <input
-              type="text"
-              name="slug"
-              placeholder="judul-kamu-disini"
-              class="form-el"
-            />
+            <input type="text" name="slug" class="form-el" />
           </div>
           <div class="form-section">
             <label>Label</label>
-            <textarea
-              placeholder="pemrograman, website, ..."
-              class="form-el"
-              name="labels"
-            ></textarea>
+            <textarea class="form-el" name="labels"></textarea>
             <span class="help-block">Dipisahkan degnan karakter koma (,)</span>
             <a href="#labels" class="btn" data-toggle="look-label"
               >Lihat Label</a
             >
             <div id="labels" style="display: none">
-              <a href="#">Good</a>, <a href="#">Good</a>
+              <a href="#" onclick="selectLabel(event, 1, true)">Good</a>,
+              <a href="#">Good</a>
             </div>
           </div>
           <div class="form-section">
@@ -140,7 +127,7 @@
        * @param ev object
        * @param id integer
        */
-      function selectLabel(ev, id) {
+      function selectLabel(ev, id, nohide) {
         ev.preventDefault();
 
         // get the labels selected data from label textarea inside the formData
@@ -175,7 +162,9 @@
         // hide the labelLists element
         // parentNode repeat third times because
         // .label-lists > ul > li > a (the a element is the ev.target)
-        ev.target.parentNode.parentNode.parentNode.style.display = 'none';
+        if (!nohide) {
+          ev.target.parentNode.parentNode.parentNode.style.display = 'none';
+        }
       }
 
       /**
@@ -231,7 +220,7 @@
           html +=
             '<li><a href="#" onclick="selectLabel(event, ' +
             row.id +
-            ')">' +
+            ', false)">' +
             row.label +
             '</a></li>';
         });
