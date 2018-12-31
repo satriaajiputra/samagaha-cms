@@ -11,7 +11,7 @@ function is_method($method)
   return ($_SERVER['REQUEST_METHOD'] == $method);
 }
 
-function redirect($url, $num){
+function redirect($url, $num = 200){
   header(config('http.' . $num));
   header ("Location: $url");
   exit;

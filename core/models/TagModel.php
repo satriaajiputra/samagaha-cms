@@ -1,4 +1,8 @@
 <?php
+namespace Core\Models;
+
+use PDO;
+use Core\DB\Connection;
 
 class TagModel extends Connection {
   protected $table = 'tags';

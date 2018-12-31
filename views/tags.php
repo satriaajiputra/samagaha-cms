@@ -1,13 +1,14 @@
 <?php
 defined('BASEPATH') or die('No Script Kiddies Please!');
 
+use Core\Models\TagModel;
+
 //setting page
 $title = 'Daftar Label';
 $description = 'Manajemen label situs kamu disini, dari mulai menambah, mengubah, hingga menghapus';
 
 //check if post for delete
 if(is_method('POST')) {
-  require_once(BASEPATH . '/core/models/TagModel.php');
   $model = new TagModel;
   $model->destroy($_POST['id']);
 }

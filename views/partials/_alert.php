@@ -5,7 +5,7 @@ if(isset($_SESSION['flash_message'])):
 ?>
 
 <div class="alert<?= isset($flashMessage['status']) ? ' alert-' . $flashMessage['status'] : '' ?>">
-  <?= $flashMessage['message'] ?>
+  <?= (is_array($flashMessage['message'])) ? implode('', $flashMessage['message']) : $flashMessage['message'] ?>
 </div>
 
 <?php

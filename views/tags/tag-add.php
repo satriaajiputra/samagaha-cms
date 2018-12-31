@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') or die('No Script Kiddies Please!');
 
-//setting page
+use Core\Models\TagModel;
 
+//setting page
 $title = 'Tambah Label';
 $description = 'Tambahkan label untuk situs kamu disini.';
 
 // submit
 if(is_method('POST')) {
-  require_once(BASEPATH . '/core/models/TagModel.php');
   $model = new TagModel;
   $model->store(array(
     'tags' => $_POST['label']

@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') or die('No Script Kiddies Please!');
 
-require_once(BASEPATH . '/core/models/TagModel.php');
+use Core\Models\TagModel;
+
 $model = new TagModel;
 
 if(!isset($_GET['id'])) {
