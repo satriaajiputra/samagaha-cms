@@ -1,21 +1,21 @@
 <?php
 defined('BASEPATH') or die('No Script Kiddies Please!');
 
-use Core\Models\TagModel;
+use Core\Models\PageModel;
 
 //setting page
-$title = 'Daftar Label';
-$description = 'Manajemen label situs kamu disini, dari mulai menambah, mengubah, hingga menghapus';
+$title = 'Daftar Artikel';
+$description = 'Manajemen artikel kamu disini, dari mulai menambah, mengubah, hingga menghapus';
 
 //check if post for delete
 if(is_method('POST')) {
-  $model = new TagModel;
+  $model = new PageModel;
   $model->destroy($_POST['id']);
 }
 
-//labels
-$model = new TagModel;
-$labels = $model->paginate();
+//articles
+$model = new PageModel;
+$articles = $model->paginate('article');
 
 require_once BASEPATH . '/views/layouts/header.php';
 
@@ -23,25 +23,27 @@ require_once BASEPATH . '/views/layouts/header.php';
 
 <section class="content-wrapper">
   <?php require_once BASEPATH . '/views/partials/_alert.php' ?>
-  <a href="<?= base_url('/?page=tag-create') ?>" class="btn">Tambah Label</a>
+  <a href="<?= base_url('/?page=article-create') ?>" class="btn">Tambah Artikel</a>
   <div class="table-responsive">
     <table>
       <thead>
         <tr>
           <th>No</th>
+          <th>Judul</th>
           <th>Label</th>
-          <th>Jumlah Artikel</th>
+          <th>Dilihat</th>
           <th width="170px">Aksi</th>
         </tr>
       </thead>
       <tbody>
-        <?php foreach($labels as $index => $row): ?>
+        <?php foreach($articles as $index => $row): ?>
         <tr>
           <td class="text-center"><?= ++$index ?></td>
-          <td><?= $row->tag ?></td>
-          <td><?= $row->used ?></td>
+          <td><?= $row->title ?></td>
+          <td><?= $row->labels ?></td>
+          <td><?= !$row->views ? 0 : $row->views ?></td>
           <td class="text-center">
-            <a href="<?= base_url('/?page=tag-edit&id='.$row->id) ?>" class="btn btn-sm">Sunting</a>
+            <a href="<?= base_url('/?page=article-edit&id='.$row->id) ?>" class="btn btn-sm">Sunting</a>
             <form action method="post" style="display: inline">
               <input type="hidden" name="id" value="<?= $row->id ?>">
               <button class="btn btn-sm">Hapus</button>

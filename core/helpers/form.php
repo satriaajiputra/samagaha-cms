@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') or die('No Script Kiddies Please!');
 
 function store_flash_input() {
   $input = $_POST;
@@ -10,5 +11,5 @@ function store_flash_input() {
 }
 
 function old_input($name) {
-  return isset($_SESSION['flash_input'][$name]) ? $_SESSION['flash_input'][$name] : '';
+  return isset($_SESSION['flash_input'][$name]) ? $_SESSION['flash_input'][$name] : null;
 }

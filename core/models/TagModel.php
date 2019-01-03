@@ -17,14 +17,19 @@ class TagModel extends Connection {
     foreach(explode(',', $data['tags']) as $row) {
       $tag = trim($row);
       if(!$this->findTag($tag)) {
-        $query = $this->getConn()->prepare("INSERT INTO $this->table (tag) VALUES (?)");
-        $query->bindValue(1, $tag);
-        $query->execute();
+        $this->insert($tag);
       }
     }
 
     set_flash_message('success', 'Berhasil menambahkan label.');
     redirect('?page=tags', 200);
+  }
+
+  public function insert(string $tag)
+  {
+    $query = $this->getConn()->prepare("INSERT INTO $this->table (tag) VALUES (?)");
+    $query->bindValue(1, $tag);
+    return $query->execute();
   }
 
   public function update(int $id, array $data)

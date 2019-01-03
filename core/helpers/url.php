@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') or die('No Script Kiddies Please!');
 
 function base_url($path = '/')
 {

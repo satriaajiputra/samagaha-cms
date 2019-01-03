@@ -22,13 +22,19 @@
         <p><?= isset($description) ? $description : 'Manajemen situs kamu disini, dari mulai label, artikel, halaman, dan
           pengaturan.' ?></p>
         <nav>
+        <?php if(isset($_SESSION['user'])): ?>
           <ul>
-            <li><a href="#">Dasbor</a></li>
+            <li><a href="<?= base_url('/?page=dashboard') ?>">Dasbor</a></li>
             <li><a href="<?= base_url('/?page=tags') ?>">Label</a></li>
-            <li><a href="#">Artikel</a></li>
-            <li><a href="#">Halaman</a></li>
-            <li><a href="#">Pengaturan</a></li>
-            <li><a href="#">Keluar</a></li>
+            <li><a href="<?= base_url('/?page=articles') ?>">Artikel</a></li>
+            <li><a href="<?= base_url('/?page=pages') ?>">Halaman</a></li>
+            <li><a href="<?= base_url('/?page=setting') ?>">Pengaturan</a></li>
+            <li><a href="<?= base_url('/?page=logout') ?>">Keluar</a></li>
           </ul>
+        <?php else: ?>
+          <ul>
+            <li><a href="<?= base_url('/?page=login') ?>">Masuk Akun</a></li>
+          </ul>
+        <?php endif; ?>
         </nav>
       </header>

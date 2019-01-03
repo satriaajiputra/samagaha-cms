@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') or die('No Script Kiddies Please!');
 
 function set_flash_message($status = false, $message) {
   $result = array();
